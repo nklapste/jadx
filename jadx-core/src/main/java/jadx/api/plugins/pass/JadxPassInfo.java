@@ -5,12 +5,16 @@ import java.util.List;
 public interface JadxPassInfo {
 
 	/**
-	 * Add this to 'run after' list to place pass before others
+	 * Add this as the only entry of 'run after' list to place pass before others.
+	 * The pass still runs after passes that list it in their 'run before' list.
+	 * Its own 'run before' list is honoured; unknown pass names there are ignored with a warning.
 	 */
 	String START = "start";
 
 	/**
-	 * Add this to 'run before' list to place pass at end
+	 * Add this as the only entry of 'run before' list to place pass at end.
+	 * The pass still runs before passes that list it in their 'run after' list.
+	 * Its own 'run after' list is honoured; unknown pass names there are ignored with a warning.
 	 */
 	String END = "end";
 
